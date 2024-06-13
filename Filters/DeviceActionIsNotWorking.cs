@@ -5,16 +5,21 @@ namespace Filters.Filters
 {
     public class DeviceActionIsNotWorking : IActionFilter
     {
+        private ILogger<DeviceActionIsNotWorking> logger;
+        private int? Order;
+        public DeviceActionIsNotWorking(ILogger<DeviceActionIsNotWorking> logger,int? order)
+        {
+            this.logger = logger;
+            Order = order;
+        }
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            throw new NotImplementedException();
+            logger.LogInformation("{Filter} before this method is not working, try after 10 days Order {Order}",nameof(DeviceActionIsNotWorking),Order);
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-
-            context.Result = new JsonResult("this method is not working, try after 10 days");
-            return;
+            logger.LogInformation("{Filter}, After this method is not working, try after 10 days Order {Order}", nameof(DeviceActionIsNotWorking), Order);
         }
     }
 }

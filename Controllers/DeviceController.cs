@@ -7,24 +7,38 @@ namespace Filters.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[TypeFilter(typeof(DevicePostActionFIlter), Arguments = new Object[] { 1 })]
+    [TypeFilter(typeof(DevicePostActionFIlter),Arguments =new Object[] {3},Order =3)]
     public class DeviceController : ControllerBase
     {
-        [TypeFilter(typeof(DevicePostActionFIlter))]
+        //[TypeFilter(typeof(DevicePostActionFIlter), Arguments = new Object[] { 2 })]
+        [TypeFilter(typeof(DevicePostActionFIlter), Arguments = new Object[] { 2 }, Order = 2)]
         [HttpPost]
-        public IActionResult Post(string name)
+        public IActionResult Post([FromBody]AssignmentPerCourse user)
         {
-            if(ModelState.IsValid)
-            {
 
-                return Ok("this is is Laxman");
-            }
-            return Ok(name);
+                return Ok(user);
         }
+         // [HttpGet]
+        //[TypeFilter(typeof(DeviceActionIsNotWorking), Arguments = new Object[] { 3 })]
+        //[TypeFilter(typeof(DeviceActionIsNotWorking), Arguments = new Object[] { 1 },Order =1)]
+        //public IActionResult Get()
+        //{
+        //    return Ok();
+        //}
         [HttpGet]
-        [TypeFilter(typeof(DeviceActionIsNotWorking))]
-        public IActionResult Get()
+        //public IActionResult Get([FromRoute]int id)
+        //{
+        //    return Ok(id);
+        //}
+        //public IActionResult Get([FromHeader] int id)
+        //{
+        //    return Ok(id);
+        //}
+        public IActionResult Get([FromQuery] int id)
         {
-            return Ok();
+            return Ok(id);
         }
+
     }
 }
