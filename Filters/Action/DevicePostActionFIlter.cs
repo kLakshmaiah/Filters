@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Filters.Filters
+namespace Filters.Filters.Action
 {
     public class DevicePostActionFIlter : IActionFilter
     {
@@ -15,8 +15,8 @@ namespace Filters.Filters
         }
         public void OnActionExecuted(ActionExecutedContext context)//after the action
         {
-            
-            logger.LogInformation("{filter}, after action Method Order {Order}",nameof(DevicePostActionFIlter),Order);
+
+            logger.LogInformation("{filter}, after action Method Order {Order}", nameof(DevicePostActionFIlter), Order);
         }
 
         public void OnActionExecuting(ActionExecutingContext context)//before the action 
@@ -27,7 +27,7 @@ namespace Filters.Filters
             //    context.Result = new BadRequestObjectResult($"Name cannot be null or empty Order {Order}");
             //    return;
             //}
-            logger.LogInformation("{filter}, Before action Method {Order}",nameof(DevicePostActionFIlter),Order);
+            logger.LogInformation("{filter}, Before action Method {Order}", nameof(DevicePostActionFIlter), Order);
         }
     }
 }

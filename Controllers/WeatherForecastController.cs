@@ -1,3 +1,4 @@
+using Filters.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Filters.Controllers
@@ -12,15 +13,18 @@ namespace Filters.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly SchoolContext schoolContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,SchoolContext schoolContext)
         {
             _logger = logger;
+            this.schoolContext = schoolContext;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            schoolContext.
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
