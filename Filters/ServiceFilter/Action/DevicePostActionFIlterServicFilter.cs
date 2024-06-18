@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Filters.Filters.Action
+namespace Filters.Filters.ServiceFilter.Action
 {
-    public class DevicePostActionFIlter : IActionFilter
+    public class DevicePostActionFIlterServicFilter : IActionFilter
     {
-        private readonly ILogger<DevicePostActionFIlter> logger;
+        private readonly ILogger<DevicePostActionFIlterServicFilter> logger;
         private int? Order { get; }
-        public DevicePostActionFIlter(ILogger<DevicePostActionFIlter> logger, int? order)
+        public DevicePostActionFIlterServicFilter(ILogger<DevicePostActionFIlterServicFilter> logger, int? order)
         {
             this.logger = logger;
             Order = order;
@@ -16,7 +16,7 @@ namespace Filters.Filters.Action
         public void OnActionExecuted(ActionExecutedContext context)//after the action
         {
 
-            logger.LogInformation("{filter}, after action Method Order {Order}", nameof(DevicePostActionFIlter), Order);
+            logger.LogInformation("{filter}, after action Method Order {Order}", nameof(DevicePostActionFIlterServicFilter), Order);
         }
 
         public void OnActionExecuting(ActionExecutingContext context)//before the action 
@@ -27,7 +27,7 @@ namespace Filters.Filters.Action
                 context.Result = new BadRequestObjectResult($"Name cannot be null or empty Order {Order}");
                 return;
             }
-            logger.LogInformation("{filter}, Before action Method {Order}", nameof(DevicePostActionFIlter), Order);
+            logger.LogInformation("{filter}, Before action Method {Order}", nameof(DevicePostActionFIlterServicFilter), Order);
         }
     }
 }
