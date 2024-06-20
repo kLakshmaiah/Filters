@@ -6,7 +6,7 @@ namespace Filters.Filters.Action
     public class DeviceActionIsNotWorking : IActionFilter
     {
         private ILogger<DeviceActionIsNotWorking> logger;
-        private int? Order;
+        public int? Order;
         public DeviceActionIsNotWorking(ILogger<DeviceActionIsNotWorking> logger, int? order)
         {
             this.logger = logger;

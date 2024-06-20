@@ -1,4 +1,4 @@
-﻿using Filters.Filters.Attribute;
+﻿using Filters.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +9,8 @@ namespace Filters.Controllers
     public class AtrributeController : ControllerBase
     {
         [HttpGet]
-       // [DeviceActionIsNotWorking(1)]
+        //[DeviceActionIsNotWorking(1)]
+        [AttributeIFilterFactory(10,"Laxman")]
         public IActionResult GetAction()
         {
             return Ok();
