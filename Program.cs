@@ -11,8 +11,8 @@ builder.Services.AddDbContext<IdentityDbContextClass1>(options => options.UseSql
 builder.Services.AddScoped<AtrributeActionIsNotWOrking>();
 //identity start
 builder.Services.AddIdentity<ApplicationUser, ApplicationRoles>().AddEntityFrameworkStores<IdentityDbContextClass1>()
-.AddUserStore<UserStore<ApplicationUser, ApplicationRoles, IdentityDbContextClass1,Guid>>()
-.AddRoleStore<RoleStore<ApplicationRoles, IdentityDbContextClass1,Guid>>();
+.AddUserStore<UserStore<ApplicationUser, ApplicationRoles, IdentityDbContextClass1, Guid>>();
+//.AddRoleStore<RoleStore<ApplicationRoles, IdentityDbContextClass1,Guid>>();
 
 //identity end
 // Add services to the container.

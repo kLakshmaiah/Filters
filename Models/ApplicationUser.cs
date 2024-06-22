@@ -2,7 +2,7 @@
 
 namespace Filters.Models
 {
-    public class ApplicationUser:IdentityUser<Guid>
+    public class ApplicationUser:IdentityUser<Guid>//AspNetUsers in the Databases
     {
         public string? Password { get; set; }
     }

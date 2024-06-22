@@ -2,7 +2,7 @@
 
 namespace Filters.Models
 {
-    public class ApplicationRoles:IdentityRole<Guid>
+    public class ApplicationRoles:IdentityRole<Guid>//AspNetRoles
     {
 
     }
