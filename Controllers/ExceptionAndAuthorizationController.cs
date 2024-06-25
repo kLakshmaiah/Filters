@@ -17,7 +17,7 @@ namespace Filters.Controllers
         {
              throw new Exception("Errror is thrown Manually");
         }
-        [TypeFilter(typeof (AuthorizeFilter))]
+        [TypeFilter(typeof (AuthorizeFilter),Arguments =new Object[] { "laxman" })]
         [HttpPost]
         public IActionResult Post()
         {

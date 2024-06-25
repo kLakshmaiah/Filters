@@ -13,7 +13,7 @@ namespace Filters.Controllers
         [AttributeIFilterFactory(10,"Laxman")]
         public IActionResult GetAction()
         {
-            return Ok();
+            return Ok("i am Ok!");
         }
     }
 }

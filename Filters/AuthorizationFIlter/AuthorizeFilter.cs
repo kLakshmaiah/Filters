@@ -6,15 +6,21 @@ namespace Filters.Filters.AuthorizationFIlter
 {
     public class AuthorizeFilter : IAuthorizationFilter
     {
+        private string UserName { get; set; }
+        public AuthorizeFilter(string userName) 
+        {
+            UserName = userName;
+        }
+
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if (context.HttpContext.Request.Headers.ContainsKey("UserName"))
+            string? headervalue = context?.HttpContext?.Request?.Headers["UserName"].FirstOrDefault()?.ToLower();
+            if (!string.IsNullOrEmpty(headervalue) || !string.IsNullOrEmpty(UserName))
             {
-                if (context?.HttpContext?.Request?.Headers["UserName"].FirstOrDefault()?.ToLower() != "laxman"){
+                if ( UserName!="laxman"){
                     context.Result = new BadRequestObjectResult("User is Not Authenticated User");
                 }
-            }else
-            context.Result = new BadRequestObjectResult("User is Not Authenticated User");
+            }
         }
     }
 }

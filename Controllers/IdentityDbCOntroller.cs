@@ -11,7 +11,7 @@ namespace Filters.Controllers
     public class IdentityDbCOntroller : ControllerBase
     {
         private readonly UserManager<ApplicationUser> UserManager;//data inserted into the AspNetUsers
-        public RoleManager<ApplicationRoles> RoleManager { get; }//data inserted into the AspNetRoles
+        public RoleManager<ApplicationRoles> RoleManager { get; }//data inserted into the AspNetRoles //signingManager,signoutManager,
 
         public IdentityDbCOntroller(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRoles> roleManager)
         {
