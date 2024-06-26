@@ -1,3 +1,4 @@
+using Filters.DTO;
 using Filters.Filters;
 using Filters.Filters.Action;
 using Filters.Filters.ServiceFilter.Action;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+//automapper configuration
+builder.Services.AddAutoMapper(typeof(AutoMapperConfiguration));
 builder.Services.AddDbContext<IdentityDbContextClass1>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityDbContextClassConnectionString")));
 builder.Services.AddScoped<AtrributeActionIsNotWOrking>();
 //identity start
@@ -33,7 +36,7 @@ if (app.Environment.IsDevelopment())
 //app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseMiddleware<AuthorizationMiddleware>();
+//app.UseMiddleware<AuthorizationMiddleware>();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,4 +1,4 @@
-﻿namespace Filters.Identity
+﻿namespace Filters.DTO
 {
     public class UserDetails
     {
@@ -7,6 +7,6 @@
         public string? Password { get; set; }
         public string? Email { get; set; }
         public string? RoleDescription { get; set; }
-        public string? MobilNumber { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }
